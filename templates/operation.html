@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>operation</title>
+    <style>
+        .wall-sub-btn {
+            display: block;
+            /*margin: 42px auto 0;*/
+            width: 340px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+            color: #fff;
+            /*text-align: center;*/
+            background: #3D84FF;
+        }
+    </style>
+</head>
+<body>
+    <p style="font-size: 16px;">{{user_name}}用户</p>
+    <form action = "http://192.168.10.75:30000/operation/code" method = "POST">
+        <input class="wall-sub-btn" type="submit" value="code" name="code"/><br>
+    </form>
+    <form action = "http://192.168.10.75:30000/operation/data" method = "POST">
+        <input class="wall-sub-btn" type="submit" value="data" name="data"/><br>
+    </form>
+    <form action = "http://192.168.10.75:30000/operation/result" method = "POST">
+        <input class="wall-sub-btn" type="submit" value="result" name="result"/><br>
+    </form>
+    <form action = "http://192.168.10.75:30000/operation/run" method = "POST">
+        <input class="wall-sub-btn" type="submit" value="run" name="运行"/><br>
+    </form>
+    <form action = "http://192.168.10.75:30000/operation/kubernetes" method = "POST">
+        <input class="wall-sub-btn" type="submit" value="kubernetes" name="kubernetes"/><br>
+    </form>
+
+</body>
+</html>

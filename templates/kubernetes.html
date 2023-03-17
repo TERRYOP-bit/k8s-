@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>operation</title>
+    <style>
+        .wall-sub-btn {
+            display: block;
+            /*margin: 42px auto 0;*/
+            width: 340px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+            color: #fff;
+            /*text-align: center;*/
+            background: #3D84FF;
+        }
+    </style>
+</head>
+<body>
+    <p style="font-size: 16px;"></p>
+    <form action = "http://192.168.10.75:30000/operation/kubernetes" method = "POST">
+        <input class="wall-sub-btn" type="submit" value="get" name="get"/><br>
+    </form>
+    <form action = "http://192.168.10.75:30000/operation/kubernetes" method = "POST">
+        <input class="wall-sub-btn" type="submit" value="top" name="top"/><br>
+    </form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+NAME                                            CPU(cores)   MEMORY(bytes)   
+hh-655d566c68-7rqdx                             1m           31Mi            
+hh-655d566c68-qdq7d                             1m           25Mi            
+kubia                                           0m           8Mi             
+kubia-manual                                    0m           7Mi             
+kubia-manual-v2                                 0m           8Mi             
+mysql-tttcm                                     2m           404Mi           
+nginx-deployment                                0m           6Mi             
+nginx-deployment2                               0m           4Mi             
+weave-scope-agent-ui-7zfnl                      72m          112Mi           
+weave-scope-agent-ui-pl8ds                      47m          96Mi            
+weave-scope-agent-ui-t2l9l                      38m          97Mi            
+weave-scope-cluster-agent-ui-5cbc84db49-z9n47   5m           78Mi            
+weave-scope-frontend-ui-6698fd5545-ltff5        22m          87Mi            
+web-5bb6fd4c98-tql7c                            0m           2Mi             

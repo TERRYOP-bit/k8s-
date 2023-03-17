@@ -1,0 +1,315 @@
+++ id -u
++ myuid=0
+++ id -g
++ mygid=0
++ set +e
+++ getent passwd 0
++ uidentry=root:x:0:0:root:/root:/bin/bash
++ set -e
++ '[' -z root:x:0:0:root:/root:/bin/bash ']'
++ SPARK_K8S_CMD=driver
++ case "$SPARK_K8S_CMD" in
++ shift 1
++ SPARK_CLASSPATH=':/opt/spark/jars/*'
++ env
++ grep SPARK_JAVA_OPT_
++ sort -t_ -k4 -n
++ sed 's/[^=]*=\(.*\)/\1/g'
++ readarray -t SPARK_EXECUTOR_JAVA_OPTS
++ '[' -n '' ']'
++ '[' -n '' ']'
++ PYSPARK_ARGS=
++ '[' -n '' ']'
++ R_ARGS=
++ '[' -n '' ']'
++ '[' 3 == 2 ']'
++ '[' 3 == 3 ']'
+++ python3 -V
++ pyv3='Python 3.7.3'
++ export PYTHON_VERSION=3.7.3
++ PYTHON_VERSION=3.7.3
++ export PYSPARK_PYTHON=python3
++ PYSPARK_PYTHON=python3
++ export PYSPARK_DRIVER_PYTHON=python3
++ PYSPARK_DRIVER_PYTHON=python3
++ case "$SPARK_K8S_CMD" in
++ CMD=("$SPARK_HOME/bin/spark-submit" --conf "spark.driver.bindAddress=$SPARK_DRIVER_BIND_ADDRESS" --deploy-mode client "$@")
++ exec /usr/bin/tini -s -- /opt/spark/bin/spark-submit --conf spark.driver.bindAddress=10.244.1.233 --deploy-mode client --properties-file /opt/spark/conf/spark.properties --class org.apache.spark.deploy.PythonRunner hdfs://192.168.10.75:8020/spark_user/11923010236/code/wordcount.py hdfs://192.168.10.75:8020/spark_user/11923010236/data/wordcount.py
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.spark.unsafe.Platform (file:/opt/spark/jars/spark-unsafe_2.12-3.1.1.jar) to constructor java.nio.DirectByteBuffer(long,int)
+WARNING: Please consider reporting this to the maintainers of org.apache.spark.unsafe.Platform
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2021-09-28 09:25:18,917 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2021-09-28 09:25:19,672 INFO spark.SparkContext: Running Spark version 3.1.1
+2021-09-28 09:25:19,695 INFO resource.ResourceUtils: ==============================================================
+2021-09-28 09:25:19,695 INFO resource.ResourceUtils: No custom resources configured for spark.driver.
+2021-09-28 09:25:19,695 INFO resource.ResourceUtils: ==============================================================
+2021-09-28 09:25:19,696 INFO spark.SparkContext: Submitted application: PythonWordCount
+2021-09-28 09:25:19,708 INFO resource.ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+2021-09-28 09:25:19,717 INFO resource.ResourceProfile: Limiting resource is cpus at 1 tasks per executor
+2021-09-28 09:25:19,718 INFO resource.ResourceProfileManager: Added ResourceProfile id: 0
+2021-09-28 09:25:19,748 INFO spark.SecurityManager: Changing view acls to: root
+2021-09-28 09:25:19,748 INFO spark.SecurityManager: Changing modify acls to: root
+2021-09-28 09:25:19,748 INFO spark.SecurityManager: Changing view acls groups to: 
+2021-09-28 09:25:19,748 INFO spark.SecurityManager: Changing modify acls groups to: 
+2021-09-28 09:25:19,748 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(root); groups with view permissions: Set(); users  with modify permissions: Set(root); groups with modify permissions: Set()
+2021-09-28 09:25:19,859 INFO util.Utils: Successfully started service 'sparkDriver' on port 7078.
+2021-09-28 09:25:19,872 INFO spark.SparkEnv: Registering MapOutputTracker
+2021-09-28 09:25:19,889 INFO spark.SparkEnv: Registering BlockManagerMaster
+2021-09-28 09:25:19,907 INFO storage.BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+2021-09-28 09:25:19,908 INFO storage.BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+2021-09-28 09:25:19,910 INFO spark.SparkEnv: Registering BlockManagerMasterHeartbeat
+2021-09-28 09:25:19,918 INFO storage.DiskBlockManager: Created local directory at /var/data/spark-a1f903ce-d4f6-4665-944a-9739fbd5c20d/blockmgr-204a6dcd-81d6-4329-a7a0-e331a400a3a3
+2021-09-28 09:25:19,932 INFO memory.MemoryStore: MemoryStore started with capacity 413.9 MiB
+2021-09-28 09:25:19,941 INFO spark.SparkEnv: Registering OutputCommitCoordinator
+2021-09-28 09:25:19,997 INFO util.log: Logging initialized @1988ms to org.sparkproject.jetty.util.log.Slf4jLog
+2021-09-28 09:25:20,034 INFO server.Server: jetty-9.4.36.v20210114; built: 2021-01-14T16:44:28.689Z; git: 238ec6997c7806b055319a6d11f8ae7564adc0de; jvm 11.0.11+9
+2021-09-28 09:25:20,043 INFO server.Server: Started @2035ms
+2021-09-28 09:25:20,093 INFO server.AbstractConnector: Started ServerConnector@3290c76c{HTTP/1.1, (http/1.1)}{0.0.0.0:4040}
+2021-09-28 09:25:20,093 INFO util.Utils: Successfully started service 'SparkUI' on port 4040.
+2021-09-28 09:25:20,111 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@3466469b{/jobs,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,113 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@5839669c{/jobs/json,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,113 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@249357e6{/jobs/job,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,115 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@279dd425{/jobs/job/json,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,115 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@6f98c8cd{/stages,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,116 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@35865f41{/stages/json,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,117 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@e698398{/stages/stage,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,118 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@25a3e090{/stages/stage/json,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,119 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@5ee0b1c7{/stages/pool,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,120 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@4cb376af{/stages/pool/json,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,120 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@544cf0c4{/storage,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,121 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@4c456a{/storage/json,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,122 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@74b8b344{/storage/rdd,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,123 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@2ba475b7{/storage/rdd/json,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,123 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@5031e079{/environment,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,124 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@192794b3{/environment/json,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,125 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@35774312{/executors,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,126 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@33c2c218{/executors/json,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,126 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@4a0071d{/executors/threadDump,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,127 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1dfd506f{/executors/threadDump/json,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,134 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@177aa9e0{/static,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,135 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@3776e6a2{/,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,136 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@59726ed6{/api,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,137 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@67484b11{/jobs/job/kill,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,137 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@40669c7e{/stages/stage/kill,null,AVAILABLE,@Spark}
+2021-09-28 09:25:20,139 INFO ui.SparkUI: Bound SparkUI to 0.0.0.0, and started at http://wordcount-py-b27d197c2bb8f434-driver-svc.default.svc:4040
+2021-09-28 09:25:20,223 INFO k8s.SparkKubernetesClientFactory: Auto-configuring K8S client using current context from users K8S config file
+2021-09-28 09:25:20,945 INFO k8s.ExecutorPodsAllocator: Going to request 1 executors from Kubernetes for ResourceProfile Id: 0, target: 1 running: 0.
+2021-09-28 09:25:21,025 INFO features.BasicExecutorFeatureStep: Decommissioning not enabled, skipping shutdown script
+2021-09-28 09:25:21,062 INFO util.Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 7079.
+2021-09-28 09:25:21,063 INFO netty.NettyBlockTransferService: Server created on wordcount-py-b27d197c2bb8f434-driver-svc.default.svc:7079
+2021-09-28 09:25:21,064 INFO storage.BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+2021-09-28 09:25:21,072 INFO storage.BlockManagerMaster: Registering BlockManager BlockManagerId(driver, wordcount-py-b27d197c2bb8f434-driver-svc.default.svc, 7079, None)
+2021-09-28 09:25:21,075 INFO storage.BlockManagerMasterEndpoint: Registering block manager wordcount-py-b27d197c2bb8f434-driver-svc.default.svc:7079 with 413.9 MiB RAM, BlockManagerId(driver, wordcount-py-b27d197c2bb8f434-driver-svc.default.svc, 7079, None)
+2021-09-28 09:25:21,078 INFO storage.BlockManagerMaster: Registered BlockManager BlockManagerId(driver, wordcount-py-b27d197c2bb8f434-driver-svc.default.svc, 7079, None)
+2021-09-28 09:25:21,079 INFO storage.BlockManager: Initialized BlockManager: BlockManagerId(driver, wordcount-py-b27d197c2bb8f434-driver-svc.default.svc, 7079, None)
+2021-09-28 09:25:21,091 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@6be2c1d1{/metrics/json,null,AVAILABLE,@Spark}
+2021-09-28 09:25:23,998 INFO k8s.KubernetesClusterSchedulerBackend$KubernetesDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (10.244.2.166:48448) with ID 1,  ResourceProfileId 0
+2021-09-28 09:25:24,018 INFO k8s.KubernetesClusterSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.8
+2021-09-28 09:25:24,136 INFO storage.BlockManagerMasterEndpoint: Registering block manager 10.244.2.166:44785 with 413.9 MiB RAM, BlockManagerId(1, 10.244.2.166, 44785, None)
+2021-09-28 09:25:24,256 INFO internal.SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir ('file:/opt/spark/work-dir/spark-warehouse').
+2021-09-28 09:25:24,256 INFO internal.SharedState: Warehouse path is 'file:/opt/spark/work-dir/spark-warehouse'.
+2021-09-28 09:25:24,264 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@72df8419{/SQL,null,AVAILABLE,@Spark}
+2021-09-28 09:25:24,265 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@6146b567{/SQL/json,null,AVAILABLE,@Spark}
+2021-09-28 09:25:24,265 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@77d1076c{/SQL/execution,null,AVAILABLE,@Spark}
+2021-09-28 09:25:24,266 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@401998e0{/SQL/execution/json,null,AVAILABLE,@Spark}
+2021-09-28 09:25:24,267 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@2161c18a{/static/sql,null,AVAILABLE,@Spark}
+2021-09-28 09:25:24,982 INFO datasources.InMemoryFileIndex: It took 184 ms to list leaf files for 1 paths.
+2021-09-28 09:25:25,927 INFO datasources.FileSourceStrategy: Pushed Filters: 
+2021-09-28 09:25:25,927 INFO datasources.FileSourceStrategy: Post-Scan Filters: 
+2021-09-28 09:25:25,929 INFO datasources.FileSourceStrategy: Output Data Schema: struct<value: string>
+2021-09-28 09:25:26,082 INFO memory.MemoryStore: Block broadcast_0 stored as values in memory (estimated size 177.2 KiB, free 413.8 MiB)
+2021-09-28 09:25:26,112 INFO memory.MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 28.6 KiB, free 413.7 MiB)
+2021-09-28 09:25:26,114 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on wordcount-py-b27d197c2bb8f434-driver-svc.default.svc:7079 (size: 28.6 KiB, free: 413.9 MiB)
+2021-09-28 09:25:26,120 INFO spark.SparkContext: Created broadcast 0 from javaToPython at <unknown>:0
+2021-09-28 09:25:26,125 INFO execution.FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+2021-09-28 09:25:26,255 INFO spark.SparkContext: Starting job: collect at /tmp/spark-5c9cd1ce-9923-40d7-920c-ff2b0e2c9408/wordcount.py:40
+2021-09-28 09:25:26,267 INFO scheduler.DAGScheduler: Registering RDD 6 (reduceByKey at /tmp/spark-5c9cd1ce-9923-40d7-920c-ff2b0e2c9408/wordcount.py:39) as input to shuffle 0
+2021-09-28 09:25:26,271 INFO scheduler.DAGScheduler: Got job 0 (collect at /tmp/spark-5c9cd1ce-9923-40d7-920c-ff2b0e2c9408/wordcount.py:40) with 1 output partitions
+2021-09-28 09:25:26,271 INFO scheduler.DAGScheduler: Final stage: ResultStage 1 (collect at /tmp/spark-5c9cd1ce-9923-40d7-920c-ff2b0e2c9408/wordcount.py:40)
+2021-09-28 09:25:26,271 INFO scheduler.DAGScheduler: Parents of final stage: List(ShuffleMapStage 0)
+2021-09-28 09:25:26,273 INFO scheduler.DAGScheduler: Missing parents: List(ShuffleMapStage 0)
+2021-09-28 09:25:26,276 INFO scheduler.DAGScheduler: Submitting ShuffleMapStage 0 (PairwiseRDD[6] at reduceByKey at /tmp/spark-5c9cd1ce-9923-40d7-920c-ff2b0e2c9408/wordcount.py:39), which has no missing parents
+2021-09-28 09:25:26,333 INFO memory.MemoryStore: Block broadcast_1 stored as values in memory (estimated size 17.8 KiB, free 413.7 MiB)
+2021-09-28 09:25:26,335 INFO memory.MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 9.9 KiB, free 413.7 MiB)
+2021-09-28 09:25:26,336 INFO storage.BlockManagerInfo: Added broadcast_1_piece0 in memory on wordcount-py-b27d197c2bb8f434-driver-svc.default.svc:7079 (size: 9.9 KiB, free: 413.9 MiB)
+2021-09-28 09:25:26,336 INFO spark.SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1383
+2021-09-28 09:25:26,344 INFO scheduler.DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 0 (PairwiseRDD[6] at reduceByKey at /tmp/spark-5c9cd1ce-9923-40d7-920c-ff2b0e2c9408/wordcount.py:39) (first 15 tasks are for partitions Vector(0))
+2021-09-28 09:25:26,345 INFO scheduler.TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+2021-09-28 09:25:26,369 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (10.244.2.166, executor 1, partition 0, ANY, 4899 bytes) taskResourceAssignments Map()
+2021-09-28 09:25:26,612 INFO storage.BlockManagerInfo: Added broadcast_1_piece0 in memory on 10.244.2.166:44785 (size: 9.9 KiB, free: 413.9 MiB)
+2021-09-28 09:25:27,383 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on 10.244.2.166:44785 (size: 28.6 KiB, free: 413.9 MiB)
+2021-09-28 09:25:28,129 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 1768 ms on 10.244.2.166 (executor 1) (1/1)
+2021-09-28 09:25:28,130 INFO scheduler.TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+2021-09-28 09:25:28,134 INFO python.PythonAccumulatorV2: Connected to AccumulatorServer at host: 127.0.0.1 port: 59271
+2021-09-28 09:25:28,139 INFO scheduler.DAGScheduler: ShuffleMapStage 0 (reduceByKey at /tmp/spark-5c9cd1ce-9923-40d7-920c-ff2b0e2c9408/wordcount.py:39) finished in 1.849 s
+2021-09-28 09:25:28,139 INFO scheduler.DAGScheduler: looking for newly runnable stages
+2021-09-28 09:25:28,140 INFO scheduler.DAGScheduler: running: Set()
+2021-09-28 09:25:28,140 INFO scheduler.DAGScheduler: waiting: Set(ResultStage 1)
+2021-09-28 09:25:28,140 INFO scheduler.DAGScheduler: failed: Set()
+2021-09-28 09:25:28,143 INFO scheduler.DAGScheduler: Submitting ResultStage 1 (PythonRDD[9] at collect at /tmp/spark-5c9cd1ce-9923-40d7-920c-ff2b0e2c9408/wordcount.py:40), which has no missing parents
+2021-09-28 09:25:28,150 INFO memory.MemoryStore: Block broadcast_2 stored as values in memory (estimated size 8.2 KiB, free 413.7 MiB)
+2021-09-28 09:25:28,152 INFO memory.MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 4.9 KiB, free 413.7 MiB)
+2021-09-28 09:25:28,153 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on wordcount-py-b27d197c2bb8f434-driver-svc.default.svc:7079 (size: 4.9 KiB, free: 413.9 MiB)
+2021-09-28 09:25:28,153 INFO spark.SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1383
+2021-09-28 09:25:28,155 INFO scheduler.DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (PythonRDD[9] at collect at /tmp/spark-5c9cd1ce-9923-40d7-920c-ff2b0e2c9408/wordcount.py:40) (first 15 tasks are for partitions Vector(0))
+2021-09-28 09:25:28,155 INFO scheduler.TaskSchedulerImpl: Adding task set 1.0 with 1 tasks resource profile 0
+2021-09-28 09:25:28,159 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (10.244.2.166, executor 1, partition 0, NODE_LOCAL, 4290 bytes) taskResourceAssignments Map()
+2021-09-28 09:25:28,183 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on 10.244.2.166:44785 (size: 4.9 KiB, free: 413.9 MiB)
+2021-09-28 09:25:28,243 INFO spark.MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 10.244.2.166:48448
+2021-09-28 09:25:28,361 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 204 ms on 10.244.2.166 (executor 1) (1/1)
+2021-09-28 09:25:28,361 INFO scheduler.TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+2021-09-28 09:25:28,362 INFO scheduler.DAGScheduler: ResultStage 1 (collect at /tmp/spark-5c9cd1ce-9923-40d7-920c-ff2b0e2c9408/wordcount.py:40) finished in 0.214 s
+2021-09-28 09:25:28,365 INFO scheduler.DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+2021-09-28 09:25:28,366 INFO scheduler.TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+2021-09-28 09:25:28,367 INFO scheduler.DAGScheduler: Job 0 finished: collect at /tmp/spark-5c9cd1ce-9923-40d7-920c-ff2b0e2c9408/wordcount.py:40, took 2.112457 s
+#: 16
+Licensed: 1
+to: 3
+the: 9
+Apache: 2
+Software: 1
+Foundation: 1
+(ASF): 1
+under: 4
+one: 1
+or: 3
+more: 1
+contributor: 1
+license: 1
+agreements.: 1
+: 125
+See: 2
+NOTICE: 1
+file: 3
+distributed: 3
+with: 2
+this: 3
+work: 1
+for: 3
+additional: 1
+information: 1
+regarding: 1
+copyright: 1
+ownership.: 1
+The: 1
+ASF: 1
+licenses: 1
+You: 2
+License,: 1
+Version: 1
+2.0: 1
+(the: 1
+"License");: 1
+you: 1
+may: 2
+not: 1
+use: 1
+except: 1
+in: 3
+compliance: 1
+License.: 2
+obtain: 1
+a: 1
+copy: 1
+of: 1
+License: 3
+at: 1
+http://www.apache.org/licenses/LICENSE-2.0: 1
+Unless: 1
+required: 1
+by: 1
+applicable: 1
+law: 1
+agreed: 1
+writing,: 1
+software: 1
+is: 1
+on: 1
+an: 1
+"AS: 1
+IS": 1
+BASIS,: 1
+WITHOUT: 1
+WARRANTIES: 1
+OR: 1
+CONDITIONS: 1
+OF: 1
+ANY: 1
+KIND,: 1
+either: 1
+express: 1
+implied.: 1
+specific: 1
+language: 1
+governing: 1
+permissions: 1
+and: 1
+limitations: 1
+from: 3
+__future__: 1
+import: 4
+print_function: 1
+sys: 1
+operator: 1
+add: 1
+pyspark.sql: 1
+SparkSession: 1
+if: 2
+__name__: 1
+==: 1
+"__main__":: 1
+len(sys.argv): 1
+!=: 1
+2:: 1
+print("Usage:: 1
+wordcount: 1
+<file>",: 1
+file=sys.stderr): 1
+sys.exit(-1): 1
+spark: 1
+=: 4
+SparkSession\: 1
+.builder\: 1
+.appName("PythonWordCount")\: 1
+.getOrCreate(): 1
+lines: 1
+spark.read.text(sys.argv[1]).rdd.map(lambda: 1
+r:: 1
+r[0]): 1
+counts: 1
+lines.flatMap(lambda: 1
+x:: 2
+x.split(': 1
+')): 1
+\: 2
+.map(lambda: 1
+(x,: 1
+1)): 1
+.reduceByKey(add): 1
+output: 1
+counts.collect(): 1
+(word,: 2
+count): 1
+output:: 1
+print("%s:: 1
+%i": 1
+%: 1
+count)): 1
+spark.stop(): 1
+2021-09-28 09:25:28,386 INFO server.AbstractConnector: Stopped Spark@3290c76c{HTTP/1.1, (http/1.1)}{0.0.0.0:4040}
+2021-09-28 09:25:28,387 INFO ui.SparkUI: Stopped Spark web UI at http://wordcount-py-b27d197c2bb8f434-driver-svc.default.svc:4040
+2021-09-28 09:25:28,389 INFO k8s.KubernetesClusterSchedulerBackend: Shutting down all executors
+2021-09-28 09:25:28,390 INFO k8s.KubernetesClusterSchedulerBackend$KubernetesDriverEndpoint: Asking each executor to shut down
+2021-09-28 09:25:28,395 WARN k8s.ExecutorPodsWatchSnapshotSource: Kubernetes client has been closed (this is expected if the application is shutting down.)
+2021-09-28 09:25:28,403 INFO spark.MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+2021-09-28 09:25:28,411 INFO memory.MemoryStore: MemoryStore cleared
+2021-09-28 09:25:28,411 INFO storage.BlockManager: BlockManager stopped
+2021-09-28 09:25:28,417 INFO storage.BlockManagerMaster: BlockManagerMaster stopped
+2021-09-28 09:25:28,420 INFO scheduler.OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+2021-09-28 09:25:28,423 INFO spark.SparkContext: Successfully stopped SparkContext
+2021-09-28 09:25:29,389 INFO util.ShutdownHookManager: Shutdown hook called
+2021-09-28 09:25:29,389 INFO util.ShutdownHookManager: Deleting directory /var/data/spark-a1f903ce-d4f6-4665-944a-9739fbd5c20d/spark-f0ba2324-6d02-44aa-9ba4-50ba763b4e68/pyspark-29b0e1a1-2125-442f-b075-11728d7005ba
+2021-09-28 09:25:29,391 INFO util.ShutdownHookManager: Deleting directory /tmp/spark-5c9cd1ce-9923-40d7-920c-ff2b0e2c9408
+2021-09-28 09:25:29,393 INFO util.ShutdownHookManager: Deleting directory /var/data/spark-a1f903ce-d4f6-4665-944a-9739fbd5c20d/spark-f0ba2324-6d02-44aa-9ba4-50ba763b4e68

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>data</title>
+    <style>
+        .input_wall {
+            width: 15%;
+            height: 20px;
+            line-height: 40px;
+            font-size: 16px;
+        }
+        .submit_wall {
+            width: 6%;
+            height: 25px;
+            font-size: 16px;
+            color: #fff;
+            text-align: center;
+            background: #3D84FF;
+        }
+    </style>
+</head>
+<body>
+    <form action = "http://192.168.10.75:30000/operation" method = "POST">
+        <input type="submit" name="back_operation" value="back_operation"/>
+    </form>
+    <div id="right_code" class="right" style="width:100%; border: solid red 2px; text-align: center; float:left">
+        <p style="font-size: 16px">数据详情</p>
+        <form action = "http://192.168.10.75:30000/operation/data" method = "POST">
+            <input class="input_wall" type="text" name="data_name" />
+            <input class="submit_wall" type="submit" value="uploading" name="uploading"/>
+        </form>
+        <br>
+        <form action = "http://192.168.10.75:30000/operation/data" method = "POST">
+            <input class="input_wall" type="text" name="data_name"/>
+            <input class="submit_wall" type="submit" name="see" value="see"/>
+        </form>
+        <br>
+        <form action = "http://192.168.10.75:30000/operation/data" method = "POST">
+            <input class="input_wall" type="text" name="data_name" />
+            <input class="submit_wall" type="submit" name="delete" value="delete"/>
+        </form>
+        <br>
+        <form action = "http://192.168.10.75:30000/operation/data" method = "POST">
+            原名：<input class="input_wall" type="text" name="data_name" />
+            新名：<input class="input_wall" type="text" name="data_rname" />
+            <input class="submit_wall" type="submit" name="rname", value="rname">
+        </form>
+        <table id="table_code">
+            {%for data in datas%}
+                <tr>
+                <td style="font-size: 16px">{{data}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

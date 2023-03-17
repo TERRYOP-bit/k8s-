@@ -1,0 +1,233 @@
+++ id -u
++ myuid=0
+++ id -g
++ mygid=0
++ set +e
+++ getent passwd 0
++ uidentry=root:x:0:0:root:/root:/bin/bash
++ set -e
++ '[' -z root:x:0:0:root:/root:/bin/bash ']'
++ SPARK_K8S_CMD=driver-py
++ case "$SPARK_K8S_CMD" in
++ shift 1
++ SPARK_CLASSPATH=':/opt/spark/jars/*'
++ env
++ grep SPARK_JAVA_OPT_
++ sort -t_ -k4 -n
++ sed 's/[^=]*=\(.*\)/\1/g'
++ readarray -t SPARK_EXECUTOR_JAVA_OPTS
++ '[' -n '' ']'
++ '[' -n '' ']'
++ PYSPARK_ARGS=
++ '[' -n hdfs://192.168.10.75:9000/spark_user/11701080221/data/ ']'
++ PYSPARK_ARGS=hdfs://192.168.10.75:9000/spark_user/11701080221/data/
++ R_ARGS=
++ '[' -n '' ']'
++ '[' 2 == 2 ']'
+++ python -V
++ pyv='Python 2.7.5'
++ export PYTHON_VERSION=2.7.5
++ PYTHON_VERSION=2.7.5
++ export PYSPARK_PYTHON=python
++ PYSPARK_PYTHON=python
++ export PYSPARK_DRIVER_PYTHON=python
++ PYSPARK_DRIVER_PYTHON=python
++ case "$SPARK_K8S_CMD" in
++ CMD=("$SPARK_HOME/bin/spark-submit" --conf "spark.driver.bindAddress=$SPARK_DRIVER_BIND_ADDRESS" --deploy-mode client "$@" $PYSPARK_PRIMARY $PYSPARK_ARGS)
++ exec /opt/spark/bin/spark-submit --conf spark.driver.bindAddress=10.244.1.60 --deploy-mode client --properties-file /opt/spark/conf/spark.properties --class org.apache.spark.deploy.PythonRunner hdfs://192.168.10.75:9000/spark_user/11701080221/code/test_group.py hdfs://192.168.10.75:9000/spark_user/11701080221/data/
+21/03/27 07:12:29 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+21/03/27 07:12:34 INFO SparkContext: Running Spark version 3.0.1
+21/03/27 07:12:34 INFO ResourceUtils: ==============================================================
+21/03/27 07:12:34 INFO ResourceUtils: Resources for spark.driver:
+
+21/03/27 07:12:34 INFO ResourceUtils: ==============================================================
+21/03/27 07:12:34 INFO SparkContext: Submitted application: PythonWordCount
+21/03/27 07:12:34 INFO SecurityManager: Changing view acls to: root
+21/03/27 07:12:34 INFO SecurityManager: Changing modify acls to: root
+21/03/27 07:12:34 INFO SecurityManager: Changing view acls groups to: 
+21/03/27 07:12:34 INFO SecurityManager: Changing modify acls groups to: 
+21/03/27 07:12:34 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(root); groups with view permissions: Set(); users  with modify permissions: Set(root); groups with modify permissions: Set()
+21/03/27 07:12:34 INFO Utils: Successfully started service 'sparkDriver' on port 7078.
+21/03/27 07:12:34 INFO SparkEnv: Registering MapOutputTracker
+21/03/27 07:12:35 INFO SparkEnv: Registering BlockManagerMaster
+21/03/27 07:12:35 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+21/03/27 07:12:35 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+21/03/27 07:12:35 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+21/03/27 07:12:35 INFO DiskBlockManager: Created local directory at /var/data/spark-6af0e8ef-3d18-40c8-9111-52c4ca39f005/blockmgr-25e08d25-80b5-435b-b3c6-d0f3f06a844b
+21/03/27 07:12:35 INFO MemoryStore: MemoryStore started with capacity 413.9 MiB
+21/03/27 07:12:35 INFO SparkEnv: Registering OutputCommitCoordinator
+21/03/27 07:12:35 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+21/03/27 07:12:35 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://testgroup-py-1616829158081-driver-svc.default.svc:4040
+21/03/27 07:12:35 INFO SparkContext: Added file file:/tmp/spark-20e04fec-8354-4743-bbb5-a0331cf9661b/test_group.py at spark://testgroup-py-1616829158081-driver-svc.default.svc:7078/files/test_group.py with timestamp 1616829155450
+21/03/27 07:12:35 INFO Utils: Copying /tmp/spark-20e04fec-8354-4743-bbb5-a0331cf9661b/test_group.py to /var/data/spark-6af0e8ef-3d18-40c8-9111-52c4ca39f005/spark-a2bd3547-07ef-4407-b644-0e7c5d4eba41/userFiles-476a5901-6205-4de2-9fd4-07d38f44efd3/test_group.py
+21/03/27 07:12:35 INFO SparkKubernetesClientFactory: Auto-configuring K8S client using current context from users K8S config file
+21/03/27 07:12:36 INFO ExecutorPodsAllocator: Going to request 4 executors from Kubernetes.
+21/03/27 07:12:36 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 7079.
+21/03/27 07:12:36 INFO NettyBlockTransferService: Server created on testgroup-py-1616829158081-driver-svc.default.svc:7079
+21/03/27 07:12:36 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+21/03/27 07:12:36 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, testgroup-py-1616829158081-driver-svc.default.svc, 7079, None)
+21/03/27 07:12:36 INFO BlockManagerMasterEndpoint: Registering block manager testgroup-py-1616829158081-driver-svc.default.svc:7079 with 413.9 MiB RAM, BlockManagerId(driver, testgroup-py-1616829158081-driver-svc.default.svc, 7079, None)
+21/03/27 07:12:36 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, testgroup-py-1616829158081-driver-svc.default.svc, 7079, None)
+21/03/27 07:12:36 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, testgroup-py-1616829158081-driver-svc.default.svc, 7079, None)
+21/03/27 07:12:36 INFO SingleEventLogFileWriter: Logging events to file:/tmp/spark-events/spark-ba5187c686bd4382a36ed48c4b5258c0.inprogress
+21/03/27 07:12:42 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+21/03/27 07:12:43 INFO KubernetesClusterSchedulerBackend$KubernetesDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (10.244.1.61:59029) with ID 2
+21/03/27 07:12:43 INFO BlockManagerMasterEndpoint: Registering block manager 10.244.1.61:37818 with 413.9 MiB RAM, BlockManagerId(2, 10.244.1.61, 37818, None)
+21/03/27 07:12:47 INFO KubernetesClusterSchedulerBackend$KubernetesDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (10.244.5.71:48971) with ID 1
+21/03/27 07:12:47 INFO KubernetesClusterSchedulerBackend$KubernetesDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (10.244.5.72:56984) with ID 4
+21/03/27 07:12:47 INFO BlockManagerMasterEndpoint: Registering block manager 10.244.5.71:39575 with 413.9 MiB RAM, BlockManagerId(1, 10.244.5.71, 39575, None)
+21/03/27 07:12:47 INFO BlockManagerMasterEndpoint: Registering block manager 10.244.5.72:45631 with 413.9 MiB RAM, BlockManagerId(4, 10.244.5.72, 45631, None)
+21/03/27 07:12:47 INFO KubernetesClusterSchedulerBackend$KubernetesDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (10.244.5.73:42273) with ID 3
+21/03/27 07:12:47 INFO KubernetesClusterSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.8
+21/03/27 07:12:47 INFO BlockManagerMasterEndpoint: Registering block manager 10.244.5.73:53230 with 413.9 MiB RAM, BlockManagerId(3, 10.244.5.73, 53230, None)
+/opt/spark/python/lib/pyspark.zip/pyspark/context.py:225: DeprecationWarning: Support for Python 2 and Python 3 prior to version 3.6 is deprecated as of Spark 3.0. See also the plan for dropping Python 2 support at https://spark.apache.org/news/plan-for-dropping-python-2-support.html.
+  DeprecationWarning)
+21/03/27 07:12:47 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir ('file:/opt/spark-3.0.1-bin-hadoop2.7/work-dir/spark-warehouse').
+21/03/27 07:12:47 INFO SharedState: Warehouse path is 'file:/opt/spark-3.0.1-bin-hadoop2.7/work-dir/spark-warehouse'.
+21/03/27 07:12:48 INFO InMemoryFileIndex: It took 29 ms to list leaf files for 1 paths.
+21/03/27 07:12:48 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 243.7 KiB, free 413.7 MiB)
+21/03/27 07:12:48 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 23.5 KiB, free 413.7 MiB)
+21/03/27 07:12:48 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on testgroup-py-1616829158081-driver-svc.default.svc:7079 (size: 23.5 KiB, free: 413.9 MiB)
+21/03/27 07:12:48 INFO SparkContext: Created broadcast 0 from csv at NativeMethodAccessorImpl.java:0
+21/03/27 07:12:50 INFO CodeGenerator: Code generated in 133.094308 ms
+21/03/27 07:12:50 INFO FileInputFormat: Total input paths to process : 1
+21/03/27 07:12:50 INFO NetworkTopology: Adding a new node: /default-rack/192.168.10.201:50010
+21/03/27 07:12:50 INFO NetworkTopology: Adding a new node: /default-rack/192.168.10.202:50010
+21/03/27 07:12:50 INFO SparkContext: Starting job: csv at NativeMethodAccessorImpl.java:0
+21/03/27 07:12:50 INFO DAGScheduler: Got job 0 (csv at NativeMethodAccessorImpl.java:0) with 1 output partitions
+21/03/27 07:12:50 INFO DAGScheduler: Final stage: ResultStage 0 (csv at NativeMethodAccessorImpl.java:0)
+21/03/27 07:12:50 INFO DAGScheduler: Parents of final stage: List()
+21/03/27 07:12:50 INFO DAGScheduler: Missing parents: List()
+21/03/27 07:12:50 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[4] at csv at NativeMethodAccessorImpl.java:0), which has no missing parents
+21/03/27 07:12:50 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 11.4 KiB, free 413.7 MiB)
+21/03/27 07:12:50 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 5.4 KiB, free 413.6 MiB)
+21/03/27 07:12:50 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on testgroup-py-1616829158081-driver-svc.default.svc:7079 (size: 5.4 KiB, free: 413.9 MiB)
+21/03/27 07:12:50 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1223
+21/03/27 07:12:50 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[4] at csv at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+21/03/27 07:12:50 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
+21/03/27 07:12:50 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, 10.244.1.61, executor 2, partition 0, ANY, 7431 bytes)
+21/03/27 07:12:50 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 10.244.1.61:37818 (size: 5.4 KiB, free: 413.9 MiB)
+21/03/27 07:12:51 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 10.244.1.61:37818 (size: 23.5 KiB, free: 413.9 MiB)
+21/03/27 07:12:56 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 5776 ms on 10.244.1.61 (executor 2) (1/1)
+21/03/27 07:12:56 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+21/03/27 07:12:56 INFO DAGScheduler: ResultStage 0 (csv at NativeMethodAccessorImpl.java:0) finished in 5.847 s
+21/03/27 07:12:56 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+21/03/27 07:12:56 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+21/03/27 07:12:56 INFO DAGScheduler: Job 0 finished: csv at NativeMethodAccessorImpl.java:0, took 5.877345 s
+21/03/27 07:12:56 INFO CodeGenerator: Code generated in 9.354135 ms
+21/03/27 07:12:56 INFO FileSourceStrategy: Pruning directories with: 
+21/03/27 07:12:56 INFO FileSourceStrategy: Pushed Filters: 
+21/03/27 07:12:56 INFO FileSourceStrategy: Post-Scan Filters: 
+21/03/27 07:12:56 INFO FileSourceStrategy: Output Data Schema: struct<user: string, time_stamp: string, btag: string, cate: string, brand: string ... 3 more fields>
+21/03/27 07:12:56 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+21/03/27 07:12:56 INFO CodeGenerator: Code generated in 22.414068 ms
+21/03/27 07:12:56 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+21/03/27 07:12:56 INFO CodeGenerator: Code generated in 17.198628 ms
+21/03/27 07:12:56 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 292.6 KiB, free 413.4 MiB)
+21/03/27 07:12:56 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 24.9 KiB, free 413.3 MiB)
+21/03/27 07:12:56 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on testgroup-py-1616829158081-driver-svc.default.svc:7079 (size: 24.9 KiB, free: 413.9 MiB)
+21/03/27 07:12:56 INFO SparkContext: Created broadcast 2 from showString at NativeMethodAccessorImpl.java:0
+21/03/27 07:12:56 INFO FileSourceScanExec: Planning scan with bin packing, max size: 62247275 bytes, open cost is considered as scanning 4194304 bytes.
+21/03/27 07:12:56 INFO SparkContext: Starting job: showString at NativeMethodAccessorImpl.java:0
+21/03/27 07:12:56 INFO DAGScheduler: Registering RDD 12 (showString at NativeMethodAccessorImpl.java:0) as input to shuffle 0
+21/03/27 07:12:56 INFO DAGScheduler: Got job 1 (showString at NativeMethodAccessorImpl.java:0) with 1 output partitions
+21/03/27 07:12:56 INFO DAGScheduler: Final stage: ResultStage 2 (showString at NativeMethodAccessorImpl.java:0)
+21/03/27 07:12:56 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 1)
+21/03/27 07:12:56 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 1)
+21/03/27 07:12:56 INFO DAGScheduler: Submitting ShuffleMapStage 1 (MapPartitionsRDD[12] at showString at NativeMethodAccessorImpl.java:0), which has no missing parents
+21/03/27 07:12:56 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 23.9 KiB, free 413.3 MiB)
+21/03/27 07:12:56 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 10.8 KiB, free 413.3 MiB)
+21/03/27 07:12:56 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on testgroup-py-1616829158081-driver-svc.default.svc:7079 (size: 10.8 KiB, free: 413.9 MiB)
+21/03/27 07:12:56 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1223
+21/03/27 07:12:56 INFO DAGScheduler: Submitting 4 missing tasks from ShuffleMapStage 1 (MapPartitionsRDD[12] at showString at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3))
+21/03/27 07:12:56 INFO TaskSchedulerImpl: Adding task set 1.0 with 4 tasks
+21/03/27 07:12:56 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1, 10.244.5.72, executor 4, partition 0, ANY, 7776 bytes)
+21/03/27 07:12:56 INFO TaskSetManager: Starting task 1.0 in stage 1.0 (TID 2, 10.244.5.73, executor 3, partition 1, ANY, 7776 bytes)
+21/03/27 07:12:56 INFO TaskSetManager: Starting task 2.0 in stage 1.0 (TID 3, 10.244.5.71, executor 1, partition 2, ANY, 7776 bytes)
+21/03/27 07:12:56 INFO TaskSetManager: Starting task 3.0 in stage 1.0 (TID 4, 10.244.1.61, executor 2, partition 3, ANY, 7776 bytes)
+21/03/27 07:12:56 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 10.244.1.61:37818 (size: 10.8 KiB, free: 413.9 MiB)
+21/03/27 07:12:57 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 10.244.1.61:37818 (size: 24.9 KiB, free: 413.9 MiB)
+21/03/27 07:12:57 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 10.244.5.73:53230 (size: 10.8 KiB, free: 413.9 MiB)
+21/03/27 07:12:57 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 10.244.5.72:45631 (size: 10.8 KiB, free: 413.9 MiB)
+21/03/27 07:12:57 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 10.244.5.71:39575 (size: 10.8 KiB, free: 413.9 MiB)
+21/03/27 07:12:58 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 10.244.5.73:53230 (size: 24.9 KiB, free: 413.9 MiB)
+21/03/27 07:12:58 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 10.244.5.72:45631 (size: 24.9 KiB, free: 413.9 MiB)
+21/03/27 07:12:58 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 10.244.5.71:39575 (size: 24.9 KiB, free: 413.9 MiB)
+21/03/27 07:13:00 INFO TaskSetManager: Finished task 3.0 in stage 1.0 (TID 4) in 3651 ms on 10.244.1.61 (executor 2) (1/4)
+21/03/27 07:13:06 INFO TaskSetManager: Finished task 1.0 in stage 1.0 (TID 2) in 10089 ms on 10.244.5.73 (executor 3) (2/4)
+21/03/27 07:13:06 INFO TaskSetManager: Finished task 2.0 in stage 1.0 (TID 3) in 10276 ms on 10.244.5.71 (executor 1) (3/4)
+21/03/27 07:13:07 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 10568 ms on 10.244.5.72 (executor 4) (4/4)
+21/03/27 07:13:07 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+21/03/27 07:13:07 INFO DAGScheduler: ShuffleMapStage 1 (showString at NativeMethodAccessorImpl.java:0) finished in 10.579 s
+21/03/27 07:13:07 INFO DAGScheduler: looking for newly runnable stages
+21/03/27 07:13:07 INFO DAGScheduler: running: Set()
+21/03/27 07:13:07 INFO DAGScheduler: waiting: Set(ResultStage 2)
+21/03/27 07:13:07 INFO DAGScheduler: failed: Set()
+21/03/27 07:13:07 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[15] at showString at NativeMethodAccessorImpl.java:0), which has no missing parents
+21/03/27 07:13:07 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 29.6 KiB, free 413.3 MiB)
+21/03/27 07:13:07 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 14.0 KiB, free 413.3 MiB)
+21/03/27 07:13:07 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on testgroup-py-1616829158081-driver-svc.default.svc:7079 (size: 14.0 KiB, free: 413.8 MiB)
+21/03/27 07:13:07 INFO SparkContext: Created broadcast 4 from broadcast at DAGScheduler.scala:1223
+21/03/27 07:13:07 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 2 (MapPartitionsRDD[15] at showString at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+21/03/27 07:13:07 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks
+21/03/27 07:13:07 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 5, 10.244.5.72, executor 4, partition 0, NODE_LOCAL, 7344 bytes)
+21/03/27 07:13:07 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on 10.244.5.72:45631 (size: 14.0 KiB, free: 413.9 MiB)
+21/03/27 07:13:07 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 10.244.5.72:56984
+21/03/27 07:13:07 INFO BlockManagerInfo: Removed broadcast_3_piece0 on testgroup-py-1616829158081-driver-svc.default.svc:7079 in memory (size: 10.8 KiB, free: 413.9 MiB)
+21/03/27 07:13:07 INFO BlockManagerInfo: Removed broadcast_3_piece0 on 10.244.5.71:39575 in memory (size: 10.8 KiB, free: 413.9 MiB)
+21/03/27 07:13:07 INFO BlockManagerInfo: Removed broadcast_3_piece0 on 10.244.5.73:53230 in memory (size: 10.8 KiB, free: 413.9 MiB)
+21/03/27 07:13:07 INFO BlockManagerInfo: Removed broadcast_3_piece0 on 10.244.1.61:37818 in memory (size: 10.8 KiB, free: 413.9 MiB)
+21/03/27 07:13:07 INFO BlockManagerInfo: Removed broadcast_3_piece0 on 10.244.5.72:45631 in memory (size: 10.8 KiB, free: 413.9 MiB)
+21/03/27 07:13:07 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 5) in 299 ms on 10.244.5.72 (executor 4) (1/1)
+21/03/27 07:13:07 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool 
+21/03/27 07:13:07 INFO DAGScheduler: ResultStage 2 (showString at NativeMethodAccessorImpl.java:0) finished in 0.316 s
+21/03/27 07:13:07 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+21/03/27 07:13:07 INFO TaskSchedulerImpl: Killing all running tasks in stage 2: Stage finished
+21/03/27 07:13:07 INFO DAGScheduler: Job 1 finished: showString at NativeMethodAccessorImpl.java:0, took 10.934040 s
+21/03/27 07:13:07 INFO CodeGenerator: Code generated in 17.13962 ms
++-------+----------+----+----+------+
+|   user|time_stamp|btag|cate| brand|
++-------+----------+----+----+------+
+|  55374|1493789913|  pv|6509| 38100|
+| 448265|1493807777|  pv| 431| 31628|
+| 600878|1493771753|  pv|1665| 56403|
+| 851212|1493790084|  pv|3190| 23975|
+| 518777|1493796047|  pv|5871|236804|
+|  50934|1493818176|cart|4520|391978|
+|1140182|1493821073|  pv|4282| 94567|
+| 738368|1493817256|  pv|6423| 39455|
+|  99567|1493817352|  pv|6554|290206|
+| 886317|1493814508|  pv|1147|293662|
+| 470179|1493776988|  pv|4282|143597|
+|1123406|1493810491|  pv|6198|172951|
+|1080972|1493819010|  pv|6433| 93403|
+| 223287|1493818353|  pv|4267| 95766|
+| 642750|1493815578|  pv|6143|  8558|
+| 377782|1493821680|  pv|4856| 95766|
+|  96297|1493792002|  pv|6059|313078|
+| 173048|1493818360|  pv|7339|311822|
+| 429272|1493814750|  pv|6158|335332|
+| 206435|1493794130|  pv|6177| 33888|
++-------+----------+----+----+------+
+only showing top 20 rows
+
+Traceback (most recent call last):
+  File "/tmp/spark-20e04fec-8354-4743-bbb5-a0331cf9661b/test_group.py", line 33, in <module>
+    group_data = src_data.groupby(['user', 'cate']).groupby(['btag']).count()
+AttributeError: 'GroupedData' object has no attribute 'groupby'
+21/03/27 07:13:07 INFO SparkContext: Invoking stop() from shutdown hook
+21/03/27 07:13:07 INFO SparkUI: Stopped Spark web UI at http://testgroup-py-1616829158081-driver-svc.default.svc:4040
+21/03/27 07:13:07 INFO KubernetesClusterSchedulerBackend: Shutting down all executors
+21/03/27 07:13:07 INFO KubernetesClusterSchedulerBackend$KubernetesDriverEndpoint: Asking each executor to shut down
+21/03/27 07:13:07 WARN ExecutorPodsWatchSnapshotSource: Kubernetes client has been closed (this is expected if the application is shutting down.)
+21/03/27 07:13:07 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+21/03/27 07:13:08 INFO MemoryStore: MemoryStore cleared
+21/03/27 07:13:08 INFO BlockManager: BlockManager stopped
+21/03/27 07:13:08 INFO BlockManagerMaster: BlockManagerMaster stopped
+21/03/27 07:13:08 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+21/03/27 07:13:08 INFO SparkContext: Successfully stopped SparkContext
+21/03/27 07:13:08 INFO ShutdownHookManager: Shutdown hook called
+21/03/27 07:13:08 INFO ShutdownHookManager: Deleting directory /var/data/spark-6af0e8ef-3d18-40c8-9111-52c4ca39f005/spark-a2bd3547-07ef-4407-b644-0e7c5d4eba41
+21/03/27 07:13:08 INFO ShutdownHookManager: Deleting directory /var/data/spark-6af0e8ef-3d18-40c8-9111-52c4ca39f005/spark-a2bd3547-07ef-4407-b644-0e7c5d4eba41/pyspark-408a37ee-1336-4c51-b16b-1d88325ccd53
+21/03/27 07:13:08 INFO ShutdownHookManager: Deleting directory /tmp/spark-20e04fec-8354-4743-bbb5-a0331cf9661b

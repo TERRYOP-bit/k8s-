@@ -1,0 +1,59 @@
+++ id -u
++ myuid=0
+++ id -g
++ mygid=0
++ set +e
+++ getent passwd 0
++ uidentry=root:x:0:0:root:/root:/bin/bash
++ set -e
++ '[' -z root:x:0:0:root:/root:/bin/bash ']'
++ SPARK_K8S_CMD=driver-py
++ case "$SPARK_K8S_CMD" in
++ shift 1
++ SPARK_CLASSPATH=':/opt/spark/jars/*'
++ env
++ grep SPARK_JAVA_OPT_
++ sort -t_ -k4 -n
++ sed 's/[^=]*=\(.*\)/\1/g'
++ readarray -t SPARK_EXECUTOR_JAVA_OPTS
++ '[' -n '' ']'
++ '[' -n '' ']'
++ PYSPARK_ARGS=
++ '[' -n hdfs://192.168.10.75:9000/spark_user/11701080221/data/ ']'
++ PYSPARK_ARGS=hdfs://192.168.10.75:9000/spark_user/11701080221/data/
++ R_ARGS=
++ '[' -n '' ']'
++ '[' 2 == 2 ']'
+++ python -V
++ pyv='Python 2.7.5'
++ export PYTHON_VERSION=2.7.5
++ PYTHON_VERSION=2.7.5
++ export PYSPARK_PYTHON=python
++ PYSPARK_PYTHON=python
++ export PYSPARK_DRIVER_PYTHON=python
++ PYSPARK_DRIVER_PYTHON=python
++ case "$SPARK_K8S_CMD" in
++ CMD=("$SPARK_HOME/bin/spark-submit" --conf "spark.driver.bindAddress=$SPARK_DRIVER_BIND_ADDRESS" --deploy-mode client "$@" $PYSPARK_PRIMARY $PYSPARK_ARGS)
++ exec /opt/spark/bin/spark-submit --conf spark.driver.bindAddress=10.244.5.7 --deploy-mode client --properties-file /opt/spark/conf/spark.properties --class org.apache.spark.deploy.PythonRunner hdfs://192.168.10.75:9000/spark_user/11701080221/code/group.py hdfs://192.168.10.75:9000/spark_user/11701080221/data/
+21/03/26 09:08:33 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+/tmp/spark-c8de9fdc-c16e-49c3-9c91-1fbba8a45ac2/group.py:6: FutureWarning: read_table is deprecated, use read_csv instead.
+  data = pd.read_table(file_name, sep=',', encoding='gbk')
+Traceback (most recent call last):
+  File "/tmp/spark-c8de9fdc-c16e-49c3-9c91-1fbba8a45ac2/group.py", line 6, in <module>
+    data = pd.read_table(file_name, sep=',', encoding='gbk')
+  File "/usr/lib64/python2.7/site-packages/pandas/io/parsers.py", line 702, in parser_f
+    return _read(filepath_or_buffer, kwds)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/parsers.py", line 429, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/parsers.py", line 895, in __init__
+    self._make_engine(self.engine)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/parsers.py", line 1122, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/parsers.py", line 1853, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 387, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 705, in pandas._libs.parsers.TextReader._setup_parser_source
+IOError: [Errno 2] File /spark_user/11701080221/data/behavior_log.csv does not exist: '/spark_user/11701080221/data/behavior_log.csv'
+log4j:WARN No appenders could be found for logger (org.apache.spark.util.ShutdownHookManager).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>operation_hdfs</title>
+    <script src="../static/operation.js"></script>
+    <style>
+        .right{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="left" style="width:20%; height: 200%; border: solid red 2px; text-align: center; float:left">
+        <p style="font-size: 25px">选项</p>
+        <input class="input1" type="button" value="首页" onclick="show_home_page()"/><br><br>
+        <input class="input1" type="button" value="code" onclick="show_code_file()"/><br><br>
+        <input class="input1" type="button" value="data" onclick="show_data_file()"/><br><br>
+        <input class="input1" type="button" value="result" onclick="show_result_file()"/><br><br>
+    </div>
+
+    <!--首页-->
+    <div id="right_home_page" style="width:79%; border: solid red 2px; text-align: center; float:left">
+        <p>上传数据、代码</p>
+        上传代码：<input type="text" /> <input type="submit" value="submit"/><br><br>
+        上传数据：<input type="text" /> <input type="submit" value="submit"/><br><br>
+        运行代码：代码名称<input type="text" />数据名称<input type="text" /> <input type="submit" value="submit"/><br><br>
+    </div>
+
+    <!--代码页面-->
+    <div id="right_code" class="right" style="width:79%; border: solid red 2px; text-align: center; float:left">
+        <p>代码详情</p>
+        <table id="table_code">
+
+        </table>
+    </div>
+
+    <!--// 数据页面-->
+    <div id="right_data" class="right" style="width:79%; border: solid red 2px; text-align: center; float:left">
+        <p>数据详情</p>
+        <table id="table_data">
+
+        </table>
+    </div>
+
+    <!--// 结果页面-->
+    <div id="right_result" class="right" style="width:79%; border: solid red 2px; text-align: center; float:left">
+        <p>结果详情</p>
+        <table id="table_result">
+
+        </table>
+    </div>
+
+</body>
+</html>

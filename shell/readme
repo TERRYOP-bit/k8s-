@@ -1,0 +1,14 @@
+1.read data
+import pandas as pd
+from pyspark.sql import SparkSession
+spark = SparkSession\
+        .builder\
+        .appName("PythonWordCount")\
+        .getOrCreate()
+df=spark.read.csv('hdfs://192.168.10.75:9000/spark_user/11701080221/data/behavior_log.csv')
+df.show()
+
+
+
+
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>run</title>
+    <style>
+        .input_wall {
+            width: 15%;
+            height: 20px;
+            line-height: 40px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .submit_wall {
+            width: 6%;
+            height: 25px;
+            font-size: 16px;
+            color: #fff;
+            text-align: center;
+            background: #3D84FF;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action = "http://192.168.10.75:30000/operation/run" method = "POST" style="margin-top: 3%">
+        代码名&emsp;&emsp;<input class="input_wall" type="text" name="code_name"/> <br>
+        数据名&emsp;&emsp;<input class="input_wall" type="text" name="data_name" /> <br>
+        内存&emsp;&emsp;&emsp;<input class="input_wall" type="text" name="memory" />G <br>
+        核数量&emsp;&emsp;<input class="input_wall" type="text" name="core" /> <br>
+        节点数量&emsp;<input class="input_wall" type="text" name="instance" /> <br>
+            <input class="submit_wall" type="submit" value="run_code" name="run_code"/>
+    </form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+++ id -u
++ myuid=185
+++ id -g
++ mygid=0
++ set +e
+++ getent passwd 185
++ uidentry=
++ set -e
++ '[' -z '' ']'
++ '[' -w /etc/passwd ']'
++ echo '185:x:185:0:anonymous uid:/opt/spark:/bin/false'
++ SPARK_CLASSPATH=':/opt/spark/jars/*'
++ env
++ grep SPARK_JAVA_OPT_
++ sort -t_ -k4 -n
++ sed 's/[^=]*=\(.*\)/\1/g'
++ readarray -t SPARK_EXECUTOR_JAVA_OPTS
++ '[' -n '' ']'
++ '[' -z ']'
++ '[' -z ']'
++ '[' -n '' ']'
++ '[' -z x ']'
++ SPARK_CLASSPATH='/opt/hadoop/conf::/opt/spark/jars/*'
++ '[' -z x ']'
++ SPARK_CLASSPATH='/opt/spark/conf:/opt/hadoop/conf::/opt/spark/jars/*'
++ case "$1" in
++ shift 1
++ CMD=("$SPARK_HOME/bin/spark-submit" --conf "spark.driver.bindAddress=$SPARK_DRIVER_BIND_ADDRESS" --deploy-mode client "$@")
++ exec /usr/bin/tini -s -- /opt/spark/bin/spark-submit --conf spark.driver.bindAddress=10.244.1.80 --deploy-mode client --properties-file /opt/spark/conf/spark.properties --class org.apache.spark.deploy.PythonRunner hdfs://192.168.10.75:9870/spark_user/192.168.10.75/code/test.py hdfs://192.168.10.75:9870/spark_user/192.168.10.75/data/
+/opt/spark/conf/spark-env.sh: line 6: /opt/module/hadoop-3.1.3/bin/hadoop: No such file or directory
+/opt/spark/bin/spark-class: line 71: /opt/module/jdk1.8.0_212/bin/java: No such file or directory
+/opt/spark/bin/spark-class: line 96: CMD: bad array subscript

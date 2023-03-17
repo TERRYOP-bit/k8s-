@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>operation</title>
+</head>
+<body>
+    <p>{{user_name}}用户</p>
+    <form action = "http://192.168.10.75:30000/operation/code" method = "POST">
+        <input type="submit" value="code" name="code"/><br><br>
+    </form>
+    <form action = "http://192.168.10.75:30000/operation/data" method = "POST">
+        <input type="submit" value="data" name="data"/><br><br>
+    </form>
+    <form action = "http://192.168.10.75:30000/operation/result" method = "POST">
+        <input type="submit" value="result" name="result"/><br><br>
+    </form>
+    <form action = "http://192.168.10.75:30000/operation/run" method = "POST">
+        <input type="submit" value="run" name="运行"/><br><br>
+    </form>
+</body>
+</html>

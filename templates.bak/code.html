@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>code</title>
+</head>
+<body>
+    <form action = "http://192.168.10.75:30000/operation" method = "POST">
+        <input type="submit" name="back_operation" value="back_operation"/>
+    </form>
+    <div id="right_code" class="right" style="width:79%; border: solid red 2px; text-align: center; float:left">
+        <p>代码详情</p>
+        <form action = "http://192.168.10.75:30000/operation/code" method = "POST">
+            <input type="text" name="file_name" /> <input type="submit" value="uploading" name="uploading"/>
+        </form>
+        <br>
+        <form action = "http://192.168.10.75:30000/operation/code" method = "POST">
+            <input type="text" name="file_name"/> <input type="submit" name="see" value="see"/>
+        </form>
+        <br>
+        <form action = "http://192.168.10.75:30000/operation/code" method = "POST">
+            <input type="text" name="file_name" /> <input type="submit" name="delete" value="delete"/>
+        </form>
+        <br>
+        <form action = "http://192.168.10.75:30000/operation/code" method = "POST">
+            原名：<input type="text" name="file_name" /> 新名：<input type="text" name="file_rname" /> <input type="submit" name="rname", value="rname">
+        </form>
+        <table id="table_code">
+            {%for file in files%}
+                <tr>
+                <td>{{file}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

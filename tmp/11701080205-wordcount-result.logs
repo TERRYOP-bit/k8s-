@@ -1,0 +1,287 @@
+++ id -u
++ myuid=0
+++ id -g
++ mygid=0
++ set +e
+++ getent passwd 0
++ uidentry=root:x:0:0:root:/root:/bin/bash
++ set -e
++ '[' -z root:x:0:0:root:/root:/bin/bash ']'
++ SPARK_K8S_CMD=driver-py
++ case "$SPARK_K8S_CMD" in
++ shift 1
++ SPARK_CLASSPATH=':/opt/spark/jars/*'
++ env
++ grep SPARK_JAVA_OPT_
++ sort -t_ -k4 -n
++ sed 's/[^=]*=\(.*\)/\1/g'
++ readarray -t SPARK_EXECUTOR_JAVA_OPTS
++ '[' -n '' ']'
++ '[' -n '' ']'
++ PYSPARK_ARGS=
++ '[' -n hdfs://192.168.10.75:9000/spark_user/11701080205/data/wordcount.py ']'
++ PYSPARK_ARGS=hdfs://192.168.10.75:9000/spark_user/11701080205/data/wordcount.py
++ R_ARGS=
++ '[' -n '' ']'
++ '[' 2 == 2 ']'
+++ python -V
++ pyv='Python 2.7.5'
++ export PYTHON_VERSION=2.7.5
++ PYTHON_VERSION=2.7.5
++ export PYSPARK_PYTHON=python
++ PYSPARK_PYTHON=python
++ export PYSPARK_DRIVER_PYTHON=python
++ PYSPARK_DRIVER_PYTHON=python
++ case "$SPARK_K8S_CMD" in
++ CMD=("$SPARK_HOME/bin/spark-submit" --conf "spark.driver.bindAddress=$SPARK_DRIVER_BIND_ADDRESS" --deploy-mode client "$@" $PYSPARK_PRIMARY $PYSPARK_ARGS)
++ exec /opt/spark/bin/spark-submit --conf spark.driver.bindAddress=10.244.1.25 --deploy-mode client --properties-file /opt/spark/conf/spark.properties --class org.apache.spark.deploy.PythonRunner hdfs://192.168.10.75:9000/spark_user/11701080205/code/wordcount.py hdfs://192.168.10.75:9000/spark_user/11701080205/data/wordcount.py
+21/03/26 10:23:43 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+21/03/26 10:23:49 INFO SparkContext: Running Spark version 3.0.1
+21/03/26 10:23:49 INFO ResourceUtils: ==============================================================
+21/03/26 10:23:49 INFO ResourceUtils: Resources for spark.driver:
+
+21/03/26 10:23:49 INFO ResourceUtils: ==============================================================
+21/03/26 10:23:49 INFO SparkContext: Submitted application: PythonWordCount
+21/03/26 10:23:49 INFO SecurityManager: Changing view acls to: root
+21/03/26 10:23:49 INFO SecurityManager: Changing modify acls to: root
+21/03/26 10:23:49 INFO SecurityManager: Changing view acls groups to: 
+21/03/26 10:23:49 INFO SecurityManager: Changing modify acls groups to: 
+21/03/26 10:23:49 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(root); groups with view permissions: Set(); users  with modify permissions: Set(root); groups with modify permissions: Set()
+21/03/26 10:23:49 INFO Utils: Successfully started service 'sparkDriver' on port 7078.
+21/03/26 10:23:49 INFO SparkEnv: Registering MapOutputTracker
+21/03/26 10:23:49 INFO SparkEnv: Registering BlockManagerMaster
+21/03/26 10:23:49 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+21/03/26 10:23:49 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+21/03/26 10:23:49 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+21/03/26 10:23:49 INFO DiskBlockManager: Created local directory at /var/data/spark-2d774ac9-bcaf-47cf-a4f7-67b648f194b9/blockmgr-c68f9564-c5b8-4681-b61d-d3dda0102632
+21/03/26 10:23:49 INFO MemoryStore: MemoryStore started with capacity 413.9 MiB
+21/03/26 10:23:49 INFO SparkEnv: Registering OutputCommitCoordinator
+21/03/26 10:23:49 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+21/03/26 10:23:50 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://wordcount-py-1616754229003-driver-svc.default.svc:4040
+21/03/26 10:23:50 INFO SparkContext: Added file file:/tmp/spark-c39e61b9-927f-4bee-b280-60327da37b8a/wordcount.py at spark://wordcount-py-1616754229003-driver-svc.default.svc:7078/files/wordcount.py with timestamp 1616754230080
+21/03/26 10:23:50 INFO Utils: Copying /tmp/spark-c39e61b9-927f-4bee-b280-60327da37b8a/wordcount.py to /var/data/spark-2d774ac9-bcaf-47cf-a4f7-67b648f194b9/spark-42199aca-6818-4295-bf5e-8e6db993c7a8/userFiles-acc85fde-df21-4216-a82a-d50fda6187ab/wordcount.py
+21/03/26 10:23:50 INFO SparkKubernetesClientFactory: Auto-configuring K8S client using current context from users K8S config file
+21/03/26 10:23:51 INFO ExecutorPodsAllocator: Going to request 4 executors from Kubernetes.
+21/03/26 10:23:51 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 7079.
+21/03/26 10:23:51 INFO NettyBlockTransferService: Server created on wordcount-py-1616754229003-driver-svc.default.svc:7079
+21/03/26 10:23:51 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+21/03/26 10:23:51 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, wordcount-py-1616754229003-driver-svc.default.svc, 7079, None)
+21/03/26 10:23:51 INFO BlockManagerMasterEndpoint: Registering block manager wordcount-py-1616754229003-driver-svc.default.svc:7079 with 413.9 MiB RAM, BlockManagerId(driver, wordcount-py-1616754229003-driver-svc.default.svc, 7079, None)
+21/03/26 10:23:51 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, wordcount-py-1616754229003-driver-svc.default.svc, 7079, None)
+21/03/26 10:23:51 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, wordcount-py-1616754229003-driver-svc.default.svc, 7079, None)
+21/03/26 10:23:51 INFO SingleEventLogFileWriter: Logging events to file:/tmp/spark-events/spark-0e1af33aea224948bfe6ea0fab15946b.inprogress
+21/03/26 10:23:57 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+21/03/26 10:23:57 INFO KubernetesClusterSchedulerBackend$KubernetesDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (10.244.1.26:52078) with ID 3
+21/03/26 10:23:57 INFO BlockManagerMasterEndpoint: Registering block manager 10.244.1.26:46047 with 413.9 MiB RAM, BlockManagerId(3, 10.244.1.26, 46047, None)
+21/03/26 10:24:01 INFO KubernetesClusterSchedulerBackend$KubernetesDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (10.244.5.30:33196) with ID 1
+21/03/26 10:24:02 INFO BlockManagerMasterEndpoint: Registering block manager 10.244.5.30:50965 with 413.9 MiB RAM, BlockManagerId(1, 10.244.5.30, 50965, None)
+21/03/26 10:24:02 INFO KubernetesClusterSchedulerBackend$KubernetesDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (10.244.5.31:46750) with ID 4
+21/03/26 10:24:02 INFO KubernetesClusterSchedulerBackend$KubernetesDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (10.244.5.32:51084) with ID 2
+21/03/26 10:24:02 INFO BlockManagerMasterEndpoint: Registering block manager 10.244.5.31:59481 with 413.9 MiB RAM, BlockManagerId(4, 10.244.5.31, 59481, None)
+21/03/26 10:24:02 INFO BlockManagerMasterEndpoint: Registering block manager 10.244.5.32:50042 with 413.9 MiB RAM, BlockManagerId(2, 10.244.5.32, 50042, None)
+21/03/26 10:24:02 INFO KubernetesClusterSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.8
+/opt/spark/python/lib/pyspark.zip/pyspark/context.py:225: DeprecationWarning: Support for Python 2 and Python 3 prior to version 3.6 is deprecated as of Spark 3.0. See also the plan for dropping Python 2 support at https://spark.apache.org/news/plan-for-dropping-python-2-support.html.
+  DeprecationWarning)
+21/03/26 10:24:02 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir ('file:/opt/spark-3.0.1-bin-hadoop2.7/work-dir/spark-warehouse').
+21/03/26 10:24:02 INFO SharedState: Warehouse path is 'file:/opt/spark-3.0.1-bin-hadoop2.7/work-dir/spark-warehouse'.
+21/03/26 10:24:03 INFO InMemoryFileIndex: It took 44 ms to list leaf files for 1 paths.
+21/03/26 10:24:04 INFO FileSourceStrategy: Pruning directories with: 
+21/03/26 10:24:04 INFO FileSourceStrategy: Pushed Filters: 
+21/03/26 10:24:04 INFO FileSourceStrategy: Post-Scan Filters: 
+21/03/26 10:24:04 INFO FileSourceStrategy: Output Data Schema: struct<value: string>
+21/03/26 10:24:05 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 292.5 KiB, free 413.6 MiB)
+21/03/26 10:24:05 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 24.8 KiB, free 413.6 MiB)
+21/03/26 10:24:05 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on wordcount-py-1616754229003-driver-svc.default.svc:7079 (size: 24.8 KiB, free: 413.9 MiB)
+21/03/26 10:24:05 INFO SparkContext: Created broadcast 0 from javaToPython at NativeMethodAccessorImpl.java:0
+21/03/26 10:24:05 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+21/03/26 10:24:05 INFO SparkContext: Starting job: collect at /tmp/spark-c39e61b9-927f-4bee-b280-60327da37b8a/wordcount.py:40
+21/03/26 10:24:05 INFO DAGScheduler: Registering RDD 6 (reduceByKey at /tmp/spark-c39e61b9-927f-4bee-b280-60327da37b8a/wordcount.py:39) as input to shuffle 0
+21/03/26 10:24:05 INFO DAGScheduler: Got job 0 (collect at /tmp/spark-c39e61b9-927f-4bee-b280-60327da37b8a/wordcount.py:40) with 1 output partitions
+21/03/26 10:24:05 INFO DAGScheduler: Final stage: ResultStage 1 (collect at /tmp/spark-c39e61b9-927f-4bee-b280-60327da37b8a/wordcount.py:40)
+21/03/26 10:24:05 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 0)
+21/03/26 10:24:05 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 0)
+21/03/26 10:24:05 INFO DAGScheduler: Submitting ShuffleMapStage 0 (PairwiseRDD[6] at reduceByKey at /tmp/spark-c39e61b9-927f-4bee-b280-60327da37b8a/wordcount.py:39), which has no missing parents
+21/03/26 10:24:05 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 18.2 KiB, free 413.6 MiB)
+21/03/26 10:24:05 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 10.3 KiB, free 413.6 MiB)
+21/03/26 10:24:05 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on wordcount-py-1616754229003-driver-svc.default.svc:7079 (size: 10.3 KiB, free: 413.9 MiB)
+21/03/26 10:24:05 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1223
+21/03/26 10:24:05 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 0 (PairwiseRDD[6] at reduceByKey at /tmp/spark-c39e61b9-927f-4bee-b280-60327da37b8a/wordcount.py:39) (first 15 tasks are for partitions Vector(0))
+21/03/26 10:24:05 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
+21/03/26 10:24:05 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, 10.244.1.26, executor 3, partition 0, ANY, 7772 bytes)
+21/03/26 10:24:05 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 10.244.1.26:46047 (size: 10.3 KiB, free: 413.9 MiB)
+21/03/26 10:24:06 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 10.244.1.26:46047 (size: 24.8 KiB, free: 413.9 MiB)
+21/03/26 10:24:11 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 6255 ms on 10.244.1.26 (executor 3) (1/1)
+21/03/26 10:24:11 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+21/03/26 10:24:11 INFO PythonAccumulatorV2: Connected to AccumulatorServer at host: 127.0.0.1 port: 37828
+21/03/26 10:24:11 INFO DAGScheduler: ShuffleMapStage 0 (reduceByKey at /tmp/spark-c39e61b9-927f-4bee-b280-60327da37b8a/wordcount.py:39) finished in 6.344 s
+21/03/26 10:24:11 INFO DAGScheduler: looking for newly runnable stages
+21/03/26 10:24:11 INFO DAGScheduler: running: Set()
+21/03/26 10:24:11 INFO DAGScheduler: waiting: Set(ResultStage 1)
+21/03/26 10:24:11 INFO DAGScheduler: failed: Set()
+21/03/26 10:24:11 INFO DAGScheduler: Submitting ResultStage 1 (PythonRDD[9] at collect at /tmp/spark-c39e61b9-927f-4bee-b280-60327da37b8a/wordcount.py:40), which has no missing parents
+21/03/26 10:24:11 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 8.2 KiB, free 413.6 MiB)
+21/03/26 10:24:11 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 4.9 KiB, free 413.6 MiB)
+21/03/26 10:24:11 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on wordcount-py-1616754229003-driver-svc.default.svc:7079 (size: 4.9 KiB, free: 413.9 MiB)
+21/03/26 10:24:11 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1223
+21/03/26 10:24:11 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (PythonRDD[9] at collect at /tmp/spark-c39e61b9-927f-4bee-b280-60327da37b8a/wordcount.py:40) (first 15 tasks are for partitions Vector(0))
+21/03/26 10:24:11 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks
+21/03/26 10:24:11 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1, 10.244.1.26, executor 3, partition 0, NODE_LOCAL, 7162 bytes)
+21/03/26 10:24:11 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 10.244.1.26:46047 (size: 4.9 KiB, free: 413.9 MiB)
+21/03/26 10:24:11 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 10.244.1.26:52078
+21/03/26 10:24:11 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 249 ms on 10.244.1.26 (executor 3) (1/1)
+21/03/26 10:24:11 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+21/03/26 10:24:11 INFO DAGScheduler: ResultStage 1 (collect at /tmp/spark-c39e61b9-927f-4bee-b280-60327da37b8a/wordcount.py:40) finished in 0.255 s
+21/03/26 10:24:11 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+21/03/26 10:24:11 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+21/03/26 10:24:11 INFO DAGScheduler: Job 0 finished: collect at /tmp/spark-c39e61b9-927f-4bee-b280-60327da37b8a/wordcount.py:40, took 6.650917 s
+: 125
+agreed: 1
+obtain: 1
+Foundation: 1
+KIND,: 1
+copyright: 1
+pyspark.sql: 1
+distributed: 3
+except: 1
+2:: 1
+(x,: 1
+to: 3
+add: 1
+under: 4
+Apache: 2
+CONDITIONS: 1
+WARRANTIES: 1
+==: 1
+express: 1
+not: 1
+writing,: 1
+\: 2
+permissions: 1
+regarding: 1
+r[0]): 1
+spark.stop(): 1
+OF: 1
+applicable: 1
+specific: 1
+%i": 1
+either: 1
+output: 1
+OR: 1
+SparkSession\: 1
+(the: 1
+print("%s:: 1
+operator: 1
+Version: 1
+licenses: 1
+len(sys.argv): 1
+2.0: 1
+#: 16
+for: 3
+sys.exit(-1): 1
+.map(lambda: 1
+import: 4
+limitations: 1
+counts.collect(): 1
+1)): 1
+.appName("PythonWordCount")\: 1
+wordcount: 1
+governing: 1
+WITHOUT: 1
+IS": 1
+Unless: 1
+spark: 1
+by: 1
+print_function: 1
+on: 1
+"AS: 1
+language: 1
+of: 1
+compliance: 1
+r:: 1
+implied.: 1
+or: 3
+software: 1
+output:: 1
+__future__: 1
+NOTICE: 1
+one: 1
+__name__: 1
+contributor: 1
+counts: 1
+!=: 1
+use: 1
+from: 3
+additional: 1
+BASIS,: 1
+ASF: 1
+"License");: 1
+more: 1
+count): 1
+a: 1
+print("Usage:: 1
+x:: 2
+.reduceByKey(add): 1
+agreements.: 1
+copy: 1
+with: 2
+"__main__":: 1
+Software: 1
+license: 1
+this: 3
+work: 1
+x.split(': 1
+See: 2
+.getOrCreate(): 1
+ownership.: 1
+count)): 1
+and: 1
+(word,: 2
+<file>",: 1
+is: 1
+http://www.apache.org/licenses/LICENSE-2.0: 1
+an: 1
+(ASF): 1
+at: 1
+file: 3
+in: 3
+You: 2
+Licensed: 1
+file=sys.stderr): 1
+if: 2
+information: 1
+%: 1
+License.: 2
+License,: 1
+spark.read.text(sys.argv[1]).rdd.map(lambda: 1
+lines.flatMap(lambda: 1
+you: 1
+=: 4
+License: 3
+may: 2
+SparkSession: 1
+sys: 1
+The: 1
+law: 1
+.builder\: 1
+required: 1
+lines: 1
+ANY: 1
+the: 9
+')): 1
+21/03/26 10:24:11 INFO SparkUI: Stopped Spark web UI at http://wordcount-py-1616754229003-driver-svc.default.svc:4040
+21/03/26 10:24:11 INFO BlockManagerInfo: Removed broadcast_2_piece0 on wordcount-py-1616754229003-driver-svc.default.svc:7079 in memory (size: 4.9 KiB, free: 413.9 MiB)
+21/03/26 10:24:11 INFO BlockManagerInfo: Removed broadcast_2_piece0 on 10.244.1.26:46047 in memory (size: 4.9 KiB, free: 413.9 MiB)
+21/03/26 10:24:12 INFO KubernetesClusterSchedulerBackend: Shutting down all executors
+21/03/26 10:24:12 INFO KubernetesClusterSchedulerBackend$KubernetesDriverEndpoint: Asking each executor to shut down
+21/03/26 10:24:12 WARN ExecutorPodsWatchSnapshotSource: Kubernetes client has been closed (this is expected if the application is shutting down.)
+21/03/26 10:24:12 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+21/03/26 10:24:12 INFO MemoryStore: MemoryStore cleared
+21/03/26 10:24:12 INFO BlockManager: BlockManager stopped
+21/03/26 10:24:12 INFO BlockManagerMaster: BlockManagerMaster stopped
+21/03/26 10:24:12 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+21/03/26 10:24:12 INFO SparkContext: Successfully stopped SparkContext
+21/03/26 10:24:13 INFO ShutdownHookManager: Shutdown hook called
+21/03/26 10:24:13 INFO ShutdownHookManager: Deleting directory /var/data/spark-2d774ac9-bcaf-47cf-a4f7-67b648f194b9/spark-42199aca-6818-4295-bf5e-8e6db993c7a8
+21/03/26 10:24:13 INFO ShutdownHookManager: Deleting directory /tmp/spark-c39e61b9-927f-4bee-b280-60327da37b8a
+21/03/26 10:24:13 INFO ShutdownHookManager: Deleting directory /var/data/spark-2d774ac9-bcaf-47cf-a4f7-67b648f194b9/spark-42199aca-6818-4295-bf5e-8e6db993c7a8/pyspark-65a6f614-5fe7-4a47-8ce8-3a5a9b48b17d
